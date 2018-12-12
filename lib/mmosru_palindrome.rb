@@ -1,6 +1,6 @@
 require "mmosru_palindrome/version"
 
-class String
+module MmoPalindrome
   
   # Returns true for a palindrome, false otherwise.
   def palindrome?
@@ -16,6 +16,14 @@ class String
   
     # Returns content for palindrome testing.
     def processed_content
-      self.to_s.scan(/[a-z]/i).join.downcase
+      self.to_s.scan(/[a-z0-9]/i).join.downcase
     end
+end
+
+class String
+  include MmoPalindrome
+end
+
+class Integer
+  include MmoPalindrome
 end
